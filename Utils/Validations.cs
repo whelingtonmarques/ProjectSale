@@ -79,13 +79,13 @@ namespace ProjectSale.Validations {
         /// <returns>True se a resposta for 'S', False se a resposta for 'N'.</returns>
         public bool RequestResponse() {
             do {
-                bool addItems;
-
                 Console.WriteLine("Deseja adicionar outro item ? (S/N)");
                 string? valueInput = Console.ReadLine();
 
                 try {
-                    return addItems = valueInput != null && valueInput.ToLower() is "s" or "n";
+                    if (valueInput != null && valueInput.ToLower() is "s" or "n") {
+                        return valueInput.ToLower() == "s";
+                    }
                 } catch {
                     Console.WriteLine("Valor inválido. Tente novamente!");
                 }

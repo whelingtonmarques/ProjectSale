@@ -37,13 +37,13 @@ namespace ProjectMarket {
                         AddProduct();
                         break;
                     case "2":
-                        RemoveProduct(context);
+                        RemoveProduct();
                         break;
                     case "3":
                         ListProducts();
                         break;
                     case "4":
-                        ChangeProductCategory(context);
+                        ChangeProductCategory();
                         break;
                     case "5":
                         CreateOrder(context);
@@ -60,7 +60,6 @@ namespace ProjectMarket {
         /// <summary>
         /// Adiciona um produto ao banco de dados.
         /// </summary>
-        /// <param name="context">O contexto do banco de dados.</param>
         static async void AddProduct() {
             // Solicita o nome e categoria do produto ao usuário
             Console.WriteLine("Informe o nome do produto:");
@@ -71,8 +70,8 @@ namespace ProjectMarket {
             try {
 
                 var produto = new Product {
-                    nome = name ?? string.Empty,
-                    categoria = int.Parse(category ?? "0")
+                    Nome = name ?? string.Empty,
+                    Categoria = int.Parse(category ?? "0")
                 };
 
                 // Chama a função para adicionar o produto ao banco de dados
@@ -95,8 +94,7 @@ namespace ProjectMarket {
         /// <summary>
         /// Remove um produto do banco de dados, caso não exista nenhum pedido vinculado a ele.
         /// </summary>
-        /// <param name="context">O contexto do banco de dados.</param>
-        static void RemoveProduct(AppDbContext context) {
+        static void RemoveProduct() {
             Console.WriteLine("Informe o id do produto:");
             string? id = Console.ReadLine();
 
@@ -139,7 +137,6 @@ namespace ProjectMarket {
         /// <summary>
         /// Lista os produtos do banco de dados.
         /// </summary>
-        /// <param name="context">O contexto do banco de dados.</param>
         static void ListProducts() {
             WriteListProducts();
         }
@@ -147,8 +144,7 @@ namespace ProjectMarket {
         /// <summary>
         /// Altera a categoria de um produto no banco de dados, caso o produto não esteja vinculado a nenhuum pedido.
         /// </summary>
-        /// <param name="context">O contexto do banco de dados.</param>
-        static void ChangeProductCategory(AppDbContext context) {
+        static void ChangeProductCategory() {
             Console.WriteLine("Informe o id do produto:");
             string? id = Console.ReadLine();
 
@@ -168,7 +164,7 @@ namespace ProjectMarket {
                             string? category = Console.ReadLine();
 
                             if (byte.TryParse(category, out byte newCategory)) {
-                                product.categoria = newCategory;
+                                product.Categoria = newCategory;
                                 // Chama a função para atualizar a categoria do produto no banco de dados
                                 _productsRepository.UpdateProduct(product);
 
@@ -199,12 +195,11 @@ namespace ProjectMarket {
         /// Cria um novo pedido no banco de dados.
         /// </summary>
         /// <param name="context">O contexto do banco de dados.</param>
-
         static async void CreateOrder(AppDbContext context) {
 
             var newOrder = new Order();
             Console.WriteLine("Informe a descrição do pedido.");
-            newOrder.descricao = Console.ReadLine() ?? string.Empty;
+            newOrder.Descricao = Console.ReadLine() ?? string.Empty;
 
             bool success = await _orderRepository.CreateOrder(newOrder);
 
@@ -238,14 +233,14 @@ namespace ProjectMarket {
 
                         if (valid) {
                             var itemOrder = new ItemsOrder {
-                                pedidoId = currentOrder.id,
-                                produtoId = productId,
-                                quantidade = quantity,
-                                valor = value
+                                PedidoId = currentOrder.Id,
+                                ProdutoId = productId,
+                                Quantidade = quantity,
+                                Valor = value
                             };
 
                             //Calcula o valor total
-                            currentOrder.valorTotal += CalculateTotalAmount(itemOrder);
+                            currentOrder.ValorTotal += CalculateTotalAmount(itemOrder);
                             itemsOrder.Add(itemOrder);
 
                             //Questiona se deseja adicionar outro intem ao pedido

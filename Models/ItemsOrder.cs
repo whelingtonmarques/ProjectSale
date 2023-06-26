@@ -13,26 +13,26 @@ namespace ProjectSale.Entities {
         /// <summary>
         /// O identificador único do item de pedido.
         /// </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// O ID do pedido ao qual o item pertence.
         /// </summary>
-        public int pedidoId { get; set; }
+        public int PedidoId { get; set; }
 
         /// <summary>
         /// O ID do produto associado ao item.
         /// </summary>
-        public int produtoId { get; set; }
+        public int ProdutoId { get; set; }
 
         /// <summary>
         /// O valor unitário do produto no item de pedido.
         /// </summary>
-        public float valor { get; set; }
+        public float Valor { get; set; }
 
         /// <summary>
         /// A quantidade do produto no item de pedido.
         /// </summary>
-        public int quantidade { get; set; }
+        public int Quantidade { get; set; }
     }
 }

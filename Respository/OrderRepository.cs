@@ -22,7 +22,7 @@ namespace ProjectSale.Respository {
         /// <returns>True se o pedido foi criado com sucesso, caso contrário, retorna false.</returns>
         public async Task<bool> CreateOrder(Order newOrder) {
             try {
-                newOrder.identificador = GenerateIdentifier();
+                newOrder.Identificador = GenerateIdentifier();
 
                 await context.Orders.AddAsync(newOrder);
                 context.SaveChanges();
@@ -43,7 +43,7 @@ namespace ProjectSale.Respository {
             Order? order = new();
 
             try {
-                return context.Orders.FirstOrDefault(i => i.identificador == identidifier);
+                return context.Orders.FirstOrDefault(i => i.Identificador == identidifier);
             } catch (Exception ex) {
                 Console.WriteLine("Falha ao encontrar os items de pedido. " + ex.ToString());
             }

@@ -23,7 +23,7 @@ namespace ProjectSale.Respository {
             ItemsOrder? itemsOrder = new();
 
             try {
-                itemsOrder = context.ItemsOrders.FirstOrDefault(p => p.produtoId == id);
+                itemsOrder = context.ItemsOrders.FirstOrDefault(p => p.ProdutoId == id);
             } catch (Exception ex) {
                 Console.WriteLine("Falha ao encontrar os items de pedido. " + ex.ToString());
             }

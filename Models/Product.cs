@@ -11,8 +11,8 @@ namespace ProjectSale.Entities
     /// </summary>
     public class Product
     {
-        public int id { get; set; }
-        public string nome { get; set; } = string.Empty;
-        public int categoria { get; set; } = 0;
+        public int Id { get; set; }
+        public string Nome { get; set; } = string.Empty;
+        public int Categoria { get; set; } = 0;
     }
 }

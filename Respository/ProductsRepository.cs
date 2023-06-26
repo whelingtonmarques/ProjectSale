@@ -41,9 +41,9 @@ namespace ProjectSale.Respository {
 
             try {
                 var listProducts = context.Products.Select(x => new Product {
-                    id = x.id,
-                    nome = x.nome,
-                    categoria = x.categoria,
+                    Id = x.Id,
+                    Nome = x.Nome,
+                    Categoria = x.Categoria,
                 }).ToList();
 
                 products = (List<Product>)listProducts;
@@ -63,7 +63,7 @@ namespace ProjectSale.Respository {
             Product? product = new();
 
             try {
-                product = context.Products.FirstOrDefault(p => p.id == id);
+                product = context.Products.FirstOrDefault(p => p.Id == id);
             } catch (Exception ex) {
                 Console.WriteLine("Falha ao encontrar o produto. " + ex.ToString());
             }

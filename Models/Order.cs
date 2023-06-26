@@ -14,21 +14,21 @@ namespace ProjectSale.Entities
         /// <summary>
         /// O identificador único do pedido.
         /// </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// O identificador exclusivo do pedido.
         /// </summary>
-        public string identificador { get; set; } = string.Empty;
+        public string Identificador { get; set; } = string.Empty;
 
         /// <summary>
         /// A descrição do pedido.
         /// </summary>
-        public string descricao { get; set; } = string.Empty;
+        public string Descricao { get; set; } = string.Empty;
 
         /// <summary>
         /// O valor total do pedido.
         /// </summary>
-        public decimal valorTotal { get; set; } = 0;
+        public decimal ValorTotal { get; set; } = 0;
     }
 }

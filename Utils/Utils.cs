@@ -63,7 +63,6 @@ namespace ProjectSale.Utils {
         /// <summary>
         /// Escreve a lista de produtos no console em formato de tabela.
         /// </summary>
-        /// <param name="context">O contexto do banco de dados.</param>
         public static void WriteListProducts() {
             ProductsRepository _productsRepository = new();
 
@@ -73,7 +72,7 @@ namespace ProjectSale.Utils {
                 var table = new ConsoleTable("ID", "Nome", "Categoria");
 
                 foreach (var product in products) {
-                    table.AddRow(product.id, product.nome, GetCategoryName(product.categoria));
+                    table.AddRow(product.Id, product.Nome, GetCategoryName(product.Categoria));
                 }
 
                 table.Write();
@@ -105,7 +104,7 @@ namespace ProjectSale.Utils {
         /// <param name="itemOrder">O item de pedido.</param>
         /// <returns>O valor total calculado.</returns>
         public static decimal CalculateTotalAmount(ItemsOrder itemOrder) {
-            return (decimal)(itemOrder.quantidade * itemOrder.valor);
+            return (decimal)(itemOrder.Quantidade * itemOrder.Valor);
         }
 
         /// <summary>
@@ -116,7 +115,7 @@ namespace ProjectSale.Utils {
         /// <param name="idToAdd">O ID a ser adicionado.</param>
         /// <returns>True se o item for único, False caso contrário.</returns>
         public static bool ValidateItems(List<ItemsOrder> itemOrder, float? uniqueValue, int? idToAdd) {
-            return itemOrder?.FirstOrDefault(p => p.produtoId == idToAdd && p.valor == uniqueValue) == null;
+            return itemOrder?.FirstOrDefault(p => p.ProdutoId == idToAdd && p.Valor == uniqueValue) == null;
         }
 
 

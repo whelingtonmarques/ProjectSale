@@ -1,24 +1,24 @@
 ﻿DATA BASE NAME: market
 
 CREATE TABLE "Products" (
-    id INT IDENTITY(1,1) PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL,
-    categoria TINYINT NOT NULL
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Nome VARCHAR(255) NOT NULL,
+    Categoria TINYINT NOT NULL
 );
 
 CREATE TABLE "ItemsOrders" (
-    id INT IDENTITY(1,1) PRIMARY KEY,
-    pedidoId INT NOT NULL,
-    produtoId INT NOT NULL,
-    valor DECIMAL(9,2) NOT NULL,
-    quantidade INT NOT NULL,
-    FOREIGN KEY (pedidoId) REFERENCES Orders(id),
-    FOREIGN KEY (produtoId) REFERENCES Products(id)
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    PedidoId INT NOT NULL,
+    ProdutoId INT NOT NULL,
+    Valor DECIMAL(9,2) NOT NULL,
+    Quantidade INT NOT NULL,
+    FOREIGN KEY (PedidoId) REFERENCES Orders(id),
+    FOREIGN KEY (ProdutoId) REFERENCES Products(id)
 );
 
 CREATE TABLE "Orders" (
-    id INT IDENTITY(1,1) PRIMARY KEY,
-    identificador VARCHAR(255) NOT NULL,
-    descricao VARCHAR(1000) NOT NULL,
-    valorTotal DECIMAL(9,2) NOT NULL
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Identificador VARCHAR(255) NOT NULL,
+    Descricao VARCHAR(1000) NOT NULL,
+    ValorTotal DECIMAL(9,2) NOT NULL
 );
